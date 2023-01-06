@@ -1,5 +1,10 @@
 #!/bin/bash
+sum=0
 
-IFS=',' read -r -a array <<< "$1"
+for i in $(echo $1 | (tr ',' '\n'));
+    do  if [ $(($i % 2)) -eq 0 ]
+        then sum=$(($sum+$i))     
+        fi
+  done
 
-#Write your code here
+echo $sum
